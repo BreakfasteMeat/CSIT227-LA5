@@ -19,9 +19,13 @@ public class SimpleCalculatorApp extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double num1 = 0, num2 = 0;
-                num1 = Double.parseDouble(tfNumber1.getText());
-                num2 = Double.parseDouble(tfNumber2.getText());
-
+                try{
+                    num1 = Double.parseDouble(tfNumber1.getText());
+                    num2 = Double.parseDouble(tfNumber2.getText());
+                } catch (NumberFormatException exc){
+                    JOptionPane.showMessageDialog(null, "Invalid Input: Please enter numbers ");
+                    return;
+                }
                 double result = 0;
                 String operation = (String)cbOperations.getSelectedItem();
                 switch (operation){
